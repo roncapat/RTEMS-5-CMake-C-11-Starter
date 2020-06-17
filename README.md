@@ -5,3 +5,13 @@ The CMakeLists.txt targets a SPARC ERC32 BSP, as the one installed by following 
 
 :warning: **You need to manually adjust AT LEAST the second line of the CMakeFile to reflect your RTEMS_ROOT_PATH.**\
 I suggest to also check all *_INSTALL_DIR, *_LIB_DIR, and *_INCLUDE_DIR to match your configuration.
+
+## How to build
+```
+git clone https://github.com/roncapat/RTEMS-5-CMake-C-11-Starter.git rtems-demo
+cd rtems-demo
+mkdir build
+cd build
+cmake ..
+make
+```
