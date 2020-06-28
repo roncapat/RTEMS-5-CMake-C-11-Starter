@@ -1,21 +1,21 @@
 cmake_minimum_required(VERSION 3.10)
 set(RTEMS_ROOT_PATH             "/mnt/sdb/rtems")
 set(RTEMS_TOOLS_INSTALL_DIR     "${RTEMS_ROOT_PATH}/5")
-set(RTEMS_TOOLS_BSP_LIB_DIR     "${RTEMS_ROOT_PATH}/5/sparc-rtems5/lib")
-set(RTEMS_KERNEL_INSTALL_DIR    "${RTEMS_ROOT_PATH}/5/sparc-rtems5/erc32")
-set(RTEMS_KERNEL_BSP_LIB_DIR    "${RTEMS_ROOT_PATH}/5/sparc-rtems5/erc32/lib")
+set(RTEMS_TOOLS_BSP_LIB_DIR     "${RTEMS_ROOT_PATH}/5/arm-rtems5/lib")
+set(RTEMS_KERNEL_INSTALL_DIR    "${RTEMS_ROOT_PATH}/5/arm-rtems5/beagleboneblack")
+set(RTEMS_KERNEL_BSP_LIB_DIR    "${RTEMS_ROOT_PATH}/5/arm-rtems5/beagleboneblack/lib")
 
 set(ENV{PATH} "${RTEMS_TOOLS_INSTALL_DIR}/bin:$ENV{PATH}")
-set(RTEMS_TOOLS_BSP_INCLUDE_DIR       "${RTEMS_ROOT_PATH}/5/sparc-rtems5/include")
+set(RTEMS_TOOLS_BSP_INCLUDE_DIR       "${RTEMS_ROOT_PATH}/5/arm-rtems5/include")
 set(RTEMS_KERNEL_BSP_INCLUDE_DIR      "${RTEMS_KERNEL_BSP_LIB_DIR}/include")
-set(RTEMS_COMPILE_OPTIONS             "-B${RTEMS_KERNEL_BSP_LIB_DIR} -B${RTEMS_TOOLS_BSP_LIB_DIR} -specs bsp_specs -qrtems -mcpu=cypress")
+set(RTEMS_COMPILE_OPTIONS             "-B${RTEMS_KERNEL_BSP_LIB_DIR} -B${RTEMS_TOOLS_BSP_LIB_DIR} -specs bsp_specs -qrtems -mcpu=cortex-a8")
 
 set(CMAKE_SYSTEM_NAME         Generic)
-set(CMAKE_SYSTEM_PROCESSOR    sparc)
+set(CMAKE_SYSTEM_PROCESSOR    arm)
 
 
-set(CMAKE_C_COMPILER "sparc-rtems5-gcc")
-set(CMAKE_CXX_COMPILER "sparc-rtems5-g++")
+set(CMAKE_C_COMPILER "arm-rtems5-gcc")
+set(CMAKE_CXX_COMPILER "arm-rtems5-g++")
 
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE          "RelWithDebInfo"     CACHE STRING "")
